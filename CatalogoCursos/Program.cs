@@ -7,6 +7,7 @@ using System.Text;
 
 namespace CatalogoCursos
 {
+    // Clase que representa un curso
     class Course
     {
         public int Id { get; set; }
@@ -16,6 +17,7 @@ namespace CatalogoCursos
 
     class Program
     {
+        // Lista de cursos
         static List<Course> Courses = new()
         {
             new Course { Id = 1, Name = "Algoritmos I",                 Area = "CS"   },
@@ -25,11 +27,11 @@ namespace CatalogoCursos
             new Course { Id = 5, Name = "Redes de Computadoras",        Area = "CS"   }
         };
 
-        const int PageSize = 3;
+        const int PageSize = 3; // Número de cursos por página en paginación
 
         static void Main()
         {
-            Console.OutputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8; // Para mostrar caracteres especiales
 
             int option;
             do
@@ -40,7 +42,7 @@ namespace CatalogoCursos
 
                 if (!int.TryParse(input, out option))
                 {
-                    option = -1;
+                    option = -1; // Opción inválida
                 }
 
                 switch (option)
@@ -84,6 +86,7 @@ namespace CatalogoCursos
             Console.Write("Seleccione una opción: ");
         }
 
+        // Lista los cursos que recibe
         static void ListCourses(IEnumerable<Course> courses)
         {
             Console.WriteLine("Lista de cursos:");
@@ -93,6 +96,7 @@ namespace CatalogoCursos
             }
         }
 
+        // Buscar cursos por texto
         static void SearchCourses()
         {
             Console.Write("Ingrese texto a buscar: ");
